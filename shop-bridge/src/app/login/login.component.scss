@@ -1,0 +1,21 @@
+.container{
+    align-content: center;
+}
+.center-div{
+    justify-content: center;
+}
+#userInput{
+    height: 20px;
+    margin-left: 15%;
+}
+#passwordInput{
+    height: 20px;
+    margin-left: 15%;
+}
+#loginBtn{
+    color: darkgray;
+    border: 1px solid darkgrey;
+}
+#errorMsg{
+    color: red;
+}

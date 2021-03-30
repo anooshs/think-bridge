@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row center-div" *ngIf="flagsCheck" id="errorMsg">{{message}}</div>
+    <div class="row center-div">
+        <label for="username">Username</label>
+        <input id="userInput" type="text" [(ngModel)]="userName" placeholder="User Name">
+    </div>
+    <div class="row center-div">
+        <label for="password">Password</label>
+        <input id="passwordInput" type="password" [(ngModel)]="passWord" placeholder="Password">
+    </div>
+    <div class="row center-div">
+        <button class="btn" id="loginBtn" (click)="checkLogin();">Login</button>
+    </div>
+    <br>
+    <br>
+</div>

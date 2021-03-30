@@ -1,0 +1,44 @@
+<div class="layout-row wrap justify-content-center">
+    <!-- <div *ngFor="let product of products; let idx = index;">
+        <div>
+            <label>{{product.name}}</label>
+            <label>{{product.description}}</label>
+            <label>{{product.color}}</label>
+            <label>{{product.price}}</label>
+        </div>
+    </div> -->
+    <ngx-datatable tableClass="table table-striped table-bordered table-hover" style="color: white; margin-left: 10%;"
+      [tableId]="'checkbox'" [rows]="products" [options]="options" 
+        [columns]="columns" [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10"
+           >
+          <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false">
+            <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+            let-selectFn="selectFn">
+            <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+            <input type="checkbox" [checked]="isSelected" (click)="onCheckboxChangeFn($event)"/>
+            </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ID" prop="id" class="datatable-header-cell">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>ID</ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template> {{row.id}}</ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name" prop="name" class="datatable-header-cell">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>Name</ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template> {{row.name}}</ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Description" prop="description" class="datatable-header-cell">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>Description</ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template> {{row.description}}</ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Color" prop="color" class="datatable-header-cell">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>Color</ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template> {{row.color}}</ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Price" prop="price" class="datatable-header-cell">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>Price</ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template> {{row.price}}</ng-template>
+            </ngx-datatable-column>
+      </ngx-datatable>
+</div>
